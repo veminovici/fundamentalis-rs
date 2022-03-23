@@ -2,4 +2,5 @@
 
 members = [
     "./concurrency/stream",
+    "./concurrency/cpubound",
 ]
