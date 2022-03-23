@@ -3,3 +3,4 @@
 # 1. Concurrency
 
 - 1.1. Stream [[code](./concurrency/stream/), [resource](https://kerkour.com/rust-worker-pool)]
+- 1.2. CPU Bound & Rayon [[code](./concurrency/cpubound/), [resource](https://kerkour.com/rust-worker-pool)]

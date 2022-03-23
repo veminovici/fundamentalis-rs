@@ -1,0 +1,3 @@
+# Fundamentalis...Concurrency...CPU Bound...
+
+Resource: [How to implement worker pools in Rust](https://kerkour.com/rust-worker-pool) by *Sylvain Kerkour*
