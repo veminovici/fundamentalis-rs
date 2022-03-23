@@ -8,6 +8,7 @@
 
 # 2. IO
 - 2.1. Read a file [[code](./io/file-read/), [resource](https://kerkour.com/rust-read-file)]
+- 2.2. Http client [[code](./io/http-client/), [resource](https://kerkour.com/rust-small-docker-image)]
 
 # 3. Memory
 - 3.1. Smart pointers [[code](./mem/smart-pointers/), [resource](https://kerkour.com/rust-avoid-lifetimes)]

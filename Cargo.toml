@@ -6,4 +6,5 @@ members = [
     "./concurrency/cron-job-tokio",
     "./io/file-read",
     "./mem/smart-pointers",
+    "./io/http-client",
 ]
