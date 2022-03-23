@@ -41,8 +41,22 @@ async fn run_buffer_unordered() {
         .await;
 }
 
+async fn run_collect() {
+    let jobs = 0..100;
+    let concurrency = 43;
+    let result: Vec<i64> = 
+        stream::iter(jobs)
+        .map(compute_job)
+        .buffer_unordered(concurrency)
+        .collect()
+        .await;
+
+    println!("Res len: {:?}", result.len());
+}
+
 #[tokio::main]
 async fn main() {
     //run_for_each_concurrency().await;
-    run_for_each_concurrency().await;
+    //run_for_each_concurrency().await;
+    run_collect().await;
 }
