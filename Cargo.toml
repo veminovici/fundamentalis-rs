@@ -3,4 +3,5 @@
 members = [
     "./concurrency/stream",
     "./concurrency/cpubound",
+    "./concurrency/cron-job-tokio",
 ]

@@ -4,3 +4,4 @@
 
 - 1.1. Stream [[code](./concurrency/stream/), [resource](https://kerkour.com/rust-worker-pool)]
 - 1.2. CPU Bound & Rayon [[code](./concurrency/cpubound/), [resource](https://kerkour.com/rust-worker-pool)]
+- 1.3. Background Jobs (CRON jobs) using lightspeed_scheduler [[code](./concurrency/background-jobs-1/), [resource](https://kerkour.com/rust-background-jobs)]
