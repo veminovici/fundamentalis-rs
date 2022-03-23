@@ -19,7 +19,7 @@ async fn process_result(result: i64) {
 
 /// Uses `for_each_concurrent` which is the easiest way to consume `Stream`.
 /// It does not return a `Stream` itself, but a `Future`, that can be `.awaited`.
-async fn run_stream() {
+async fn run_for_each_concurrency() {
     let jobs = 0..100;
     let concurrency = 43;
 
@@ -28,9 +28,21 @@ async fn run_stream() {
             let result = compute_job(job).await;
             process_result(result).await;
         })
-        .await;}
+        .await;
+}
+
+async fn run_buffer_unordered() {
+    let jobs = 0..100;
+    let concurrency = 43;
+    stream::iter(jobs)
+        .map(compute_job)
+        .buffer_unordered(concurrency)
+        .for_each(process_result)
+        .await;
+}
 
 #[tokio::main]
 async fn main() {
-    run_stream().await;
+    //run_for_each_concurrency().await;
+    run_for_each_concurrency().await;
 }
