@@ -11,3 +11,14 @@
 
 # 3. Memory
 - 3.1. Smart pointers [[code](./mem/smart-pointers/), [resource](https://kerkour.com/rust-avoid-lifetimes)]
+
+# Rust Development workflow
+[resource](https://kerkour.com/rust-development-workflow)
+
+```
+cargo install cargo-audit
+cargo install cargo outdated
+
+cargo audit
+cargo outdated
+```
