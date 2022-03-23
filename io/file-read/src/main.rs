@@ -1,4 +1,4 @@
-use std::io::{BufReader, BufRead};
+use std::io::{BufRead, BufReader};
 
 fn read_file_string(filepath: &str) -> std::io::Result<String> {
     let data = std::fs::read_to_string(filepath);

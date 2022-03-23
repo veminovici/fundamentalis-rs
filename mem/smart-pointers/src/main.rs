@@ -1,8 +1,7 @@
-use std::rc::Rc;
 use std::cell::{RefCell, RefMut};
+use std::rc::Rc;
 use std::sync::{Arc, Mutex};
 use std::{thread, time};
-
 
 // fn do_something<'a>(x: &'a u64) -> &'a u64 {
 //     println!("{}", x);

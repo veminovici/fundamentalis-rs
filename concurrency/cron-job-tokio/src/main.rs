@@ -8,11 +8,13 @@ async fn main() {
     #[cfg(feature = "signal")]
     sched.shutdown_on_ctrl_c();
 
-    sched.set_shutdown_handler(Box::new(|| {
-        Box::pin(async move {
-            println!("Shut down done");
-        })
-    })).unwrap();
+    sched
+        .set_shutdown_handler(Box::new(|| {
+            Box::pin(async move {
+                println!("Shut down done");
+            })
+        }))
+        .unwrap();
 
     let mut five_s_job = Job::new("1/5 * * * * *", |uuid, _l| {
         println!(
@@ -77,16 +79,18 @@ async fn main() {
     let four_s_job_guid = four_s_job_async.guid();
     sched.add(four_s_job_async);
 
-    sched.add(
-        Job::new("1/30 * * * * *", |uuid, _l| {
-            println!(
-                "{:?} I run every 30 seconds id {:?}",
-                chrono::Utc::now(),
-                uuid
-            );
-        })
-        .unwrap(),
-    ).unwrap();
+    sched
+        .add(
+            Job::new("1/30 * * * * *", |uuid, _l| {
+                println!(
+                    "{:?} I run every 30 seconds id {:?}",
+                    chrono::Utc::now(),
+                    uuid
+                );
+            })
+            .unwrap(),
+        )
+        .unwrap();
 
     println!(
         "{:?} Sched one shot for {:?}",
@@ -95,12 +99,14 @@ async fn main() {
             .checked_add_signed(chrono::Duration::seconds(10))
             .unwrap()
     );
-    sched.add(
-        Job::new_one_shot(Duration::from_secs(10), |_uuid, _l| {
-            println!("{:?} I'm only run once", chrono::Utc::now());
-        })
-        .unwrap(),
-    ).unwrap();
+    sched
+        .add(
+            Job::new_one_shot(Duration::from_secs(10), |_uuid, _l| {
+                println!("{:?} I'm only run once", chrono::Utc::now());
+            })
+            .unwrap(),
+        )
+        .unwrap();
 
     println!(
         "{:?} Sched one shot async for {:?}",
@@ -109,14 +115,16 @@ async fn main() {
             .checked_add_signed(chrono::Duration::seconds(16))
             .unwrap()
     );
-    sched.add(
-        Job::new_one_shot_async(Duration::from_secs(16), |_uuid, _l| {
-            Box::pin(async move {
-                println!("{:?} I'm only run once async", chrono::Utc::now());
+    sched
+        .add(
+            Job::new_one_shot_async(Duration::from_secs(16), |_uuid, _l| {
+                Box::pin(async move {
+                    println!("{:?} I'm only run once async", chrono::Utc::now());
+                })
             })
-        })
-        .unwrap(),
-    ).unwrap();
+            .unwrap(),
+        )
+        .unwrap();
 
     let jj = Job::new_repeated(Duration::from_secs(8), |_uuid, _l| {
         println!("{:?} I'm repeated every 8 seconds", chrono::Utc::now());

@@ -3,7 +3,6 @@ use rand::{thread_rng, Rng};
 use std::time::Duration;
 
 async fn compute_job(job: i64) -> i64 {
-
     // Sleep for a bit
     let mut rng = thread_rng();
     let sleep_ms: u64 = rng.gen_range(0..10);
@@ -44,8 +43,7 @@ async fn run_buffer_unordered() {
 async fn run_collect() {
     let jobs = 0..100;
     let concurrency = 43;
-    let result: Vec<i64> = 
-        stream::iter(jobs)
+    let result: Vec<i64> = stream::iter(jobs)
         .map(compute_job)
         .buffer_unordered(concurrency)
         .collect()
