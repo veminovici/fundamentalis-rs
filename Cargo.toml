@@ -4,5 +4,6 @@ members = [
     "./concurrency/stream",
     "./concurrency/cpubound",
     "./concurrency/cron-job-tokio",
-    "./io/file-read"
+    "./io/file-read",
+    "./mem/smart-pointers",
 ]

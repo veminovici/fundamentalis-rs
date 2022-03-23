@@ -8,3 +8,6 @@
 
 # 2. IO
 - 2.1. Read a file [[code](./io/file-read/), [resource](https://kerkour.com/rust-read-file)]
+
+# 3. Memory
+- 3.1. Smart pointers [[code](./mem/smart-pointers/), [resource](https://kerkour.com/rust-avoid-lifetimes)]
