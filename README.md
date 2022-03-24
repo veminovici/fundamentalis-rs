@@ -21,6 +21,7 @@
 - 4.3. Logging with custom logger [[code](./utils/logging-custom/), [resource](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/log.html#log-messages-with-a-custom-logger)]
 - 4.4. Logging to syslog [[code](./utils/logging-syslog/), [resource](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/log.html#log-to-the-unix-syslog)]
 - 4.5. Logging other [resources](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/config_log.html)
+- 4.6. Open telemetry [[code](https://github.com/open-telemetry/opentelemetry-rust/tree/main/examples/grpc)]
 
 # Rust Development workflow
 [resource](https://kerkour.com/rust-development-workflow)
