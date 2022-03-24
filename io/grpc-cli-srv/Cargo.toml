@@ -1,0 +1,19 @@
+[package]
+name = "grpc-cli-srv"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# gRPC server/client
+tonic = "0.6"
+prost = "0.9"
+# CLI
+structopt = "0.3"
+# Async runtime
+tokio = { version = "1.17", features = ["full"] }
+
+[build-dependencies]
+# protobuf->Rust compiler
+tonic-build = "0.6"

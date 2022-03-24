@@ -7,4 +7,5 @@ members = [
     "./io/file-read",
     "./mem/smart-pointers",
     "./io/http-client",
+    "./io/grpc-cli-srv",
 ]
