@@ -39,11 +39,13 @@ struct ApplicationArguments {
     pub subcommand: SubCommand,
 }
 
-fn main() {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = ApplicationArguments::from_args();
 
     match args.subcommand {
         SubCommand::StartServer(opts) => println!("starting the server: {:?}", opts),
         SubCommand::Run(opts) => println!("sending a command: {:?}", opts),
     }
+
+    Ok(())
 }
