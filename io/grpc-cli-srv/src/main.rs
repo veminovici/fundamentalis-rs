@@ -1,3 +1,8 @@
+//
+// cargo run -- server
+// cargo run -- run ls
+//
+
 pub mod remotecli;
 
 use structopt::StructOpt;
