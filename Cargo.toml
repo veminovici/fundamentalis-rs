@@ -9,4 +9,5 @@ members = [
     "./io/http-client",
     "./io/grpc-cli-srv",
     "./utils/logging",
+    "./utils/logging-stdout",
 ]
