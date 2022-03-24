@@ -10,4 +10,6 @@ members = [
     "./io/grpc-cli-srv",
     "./utils/logging",
     "./utils/logging-stdout",
+    "./utils/logging-custom",
+    "./utils/logging-syslog",
 ]
