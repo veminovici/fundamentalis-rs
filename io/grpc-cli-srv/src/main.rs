@@ -1,3 +1,5 @@
+pub mod remotecli;
+
 use structopt::StructOpt;
 
 // These are the options used by the `server` subcommand
