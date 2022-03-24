@@ -49,9 +49,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         SubCommand::StartServer(opts) => {
             println!("Start the server on: {:?}", opts.server_listen_addr);
             remotecli::server::start_server(opts).await?;
-        },
-        SubCommand::Run(opts) => 
-            println!("sending a command: {:?}", opts),
+        }
+        SubCommand::Run(opts) => {
+            println!("Run command: '{:?}'", opts.command);
+            remotecli::client::client_run(opts).await?;
+        }
     }
 
     Ok(())
