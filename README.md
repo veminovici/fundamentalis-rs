@@ -10,6 +10,7 @@
 - 2.1. Read a file [[code](./io/file-read/), [resource](https://kerkour.com/rust-read-file)]
 - 2.2. Http client [[code](./io/http-client/), [resource](https://kerkour.com/rust-small-docker-image)]
 - 2.3. GRPC client and server [[code](./io/grpc-cli-srv/), [resource](https://tjtelan.com/blog/lets-build-a-single-binary-grpc-server-client-with-rust-in-2020/)]
+- 2.4. GRPC [[resource-1](https://blog.logrocket.com/rust-and-grpc-a-complete-guide/), [resource-2](https://romankudryashov.com/blog/2021/04/grpc-rust/)]
 
 # 3. Memory
 - 3.1. Smart pointers [[code](./mem/smart-pointers/), [resource](https://kerkour.com/rust-avoid-lifetimes)]
