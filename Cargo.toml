@@ -9,6 +9,7 @@ members = [
     "./mem/smart-pointers",
     "./io/http-client",
     "./io/grpc-cli-srv",
+    "./services/static-site-generator",
     "./utils/logging",
     "./utils/logging-stdout",
     "./utils/logging-custom",
