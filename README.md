@@ -7,7 +7,7 @@
 - 1.3. Cron jobs using tokio [[code](./concurrency/cron-job-tokio/), [resource](https://kerkour.com/rust-background-jobs)]
 
 # 2. Data Structures
-- 2.1. Itertoold [[code](./data/iter/)]
+- 2.1. Itertools [[code](./data/iter/)]
 
 # 3. IO
 - 3.1. Read a file [[code](./io/file-read/), [resource](https://kerkour.com/rust-read-file)]
@@ -19,7 +19,7 @@
 - 4.1. Smart pointers [[code](./mem/smart-pointers/), [resource](https://kerkour.com/rust-avoid-lifetimes)]
 
 # 5. Services
-- 5.1. Static-site geenerator [[code](./services/static-site-generator/), [resource](https://kerkour.com/rust-static-site-generator)]
+- 5.1. Static-site generator [[code](./services/static-site-generator/), [resource](https://kerkour.com/rust-static-site-generator)]
 
 # 6. Utils
 - 6.1. Logging [[code](./utils/logging/), [resource](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/log.html#log-a-debug-message-to-the-console)]
