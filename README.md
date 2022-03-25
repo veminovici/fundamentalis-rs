@@ -23,8 +23,8 @@
 - 4.5. Logging other [resources](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/config_log.html)
 - 4.6. Open telemetry [[code](https://github.com/open-telemetry/opentelemetry-rust/tree/main/examples/grpc)]
 
-# Rust Development workflow
-[resource](https://kerkour.com/rust-development-workflow)
+# 5. Others
+- 5.1. Rust Development Workflow [[resource](https://kerkour.com/rust-development-workflow)]
 
 ```
 cargo install cargo-audit
