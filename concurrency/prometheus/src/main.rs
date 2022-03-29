@@ -1,10 +1,22 @@
 // RUST_LOG=debug cargo run
 mod command;
-
+mod fetch_metrics;
 
 use command::*;
+use fetch_metrics::fetch_metrics;
 use log::{debug, error, info};
 use tokio::{sync::{broadcast::{self, Receiver, Sender}}, task};
+
+fn process_command(cmd: Command) {
+    match cmd {
+        Command::Store(metrics) => {
+            debug!("storing {} metrics", metrics.len());
+        },
+        _ => {
+            debug!("processing a different command");
+        }
+    }
+}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -12,17 +24,35 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     info!("Starting service");
 
-    let (_tx, mut rx): (Sender<Command>, Receiver<Command>) = broadcast::channel(500);
+    let (tx, mut rx): (Sender<Command>, Receiver<Command>) = broadcast::channel(500);
 
     let manager = tokio::spawn(async move {
         debug!("Spawn resource manager task");
         while let Ok(cmd) = rx.recv().await {
-            info!("Received Command {:?}", cmd);
-            //process_command(cmd, &mut storage, backchannel.clone());
+            info!("Received Command {}", cmd);
+            process_command(cmd);
+        }
+    });
+
+    let forever_fetch_metrics = tokio::spawn(async move {
+        let mut interval_timer = tokio::time::interval(chrono::Duration::seconds(5).to_std().unwrap());
+
+        loop {
+            interval_timer.tick().await;
+            debug!("Fetching metrics");
+            let tx = tx.clone();
+
+            tokio::spawn(async move {
+                let metrics = fetch_metrics().await.unwrap();
+                if let Err(_err) = tx.send(Command::Store(metrics)) {
+                    eprintln!("Encountered an error when sending metrics to the channel");
+                }
+            });
         }
     });
 
     manager.await.unwrap();
+    forever_fetch_metrics.await.unwrap();
 
     Ok(())
 }

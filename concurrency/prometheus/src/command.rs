@@ -2,7 +2,7 @@ use std::fmt::Display;
 
 #[derive(Debug, Clone)]
 pub enum Command {
-    Store,
+    Store(Vec<String>),
     Query,
     QueryResults,
 }
@@ -11,14 +11,14 @@ pub enum Command {
 impl Display for Command {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Command::Store => {
-                writeln!(f, "STORE")
+            Command::Store(metrics) => {
+                write!(f, "STORE {} metrics", metrics.len())
             },
             Command::Query => {
-                writeln!(f, "QUERY")
+                write!(f, "QUERY")
             },
             Command::QueryResults => {
-                writeln!(f, "QUERY_RESULTS")
+                write!(f, "QUERY_RESULTS")
             }
         }
     }
