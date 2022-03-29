@@ -26,6 +26,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let (tx, mut rx): (Sender<Command>, Receiver<Command>) = broadcast::channel(500);
 
+    // This thread will own the storage.
     let manager = tokio::spawn(async move {
         debug!("Spawn resource manager task");
         while let Ok(cmd) = rx.recv().await {
@@ -34,11 +35,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     });
 
+    let fetch_interval = core::time::Duration::from_secs(5);
+
+    // This thread will fetch the metrics at a given interval.
     let forever_fetch_metrics = tokio::spawn(async move {
-        let mut interval_timer = tokio::time::interval(chrono::Duration::seconds(5).to_std().unwrap());
+        let mut interval_timer = tokio::time::interval(fetch_interval);
 
         loop {
             interval_timer.tick().await;
+
             debug!("Fetching metrics");
             let tx = tx.clone();
 
