@@ -4,6 +4,7 @@ members = [
     "./concurrency/stream",
     "./concurrency/cpubound",
     "./concurrency/cron-job-tokio",
+    "./concurrency/fetch-metrics",
     "./concurrency/prometheus",
     "./data/iter",
     "./io/file-read",
