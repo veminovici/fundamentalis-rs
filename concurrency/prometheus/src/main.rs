@@ -1,19 +1,32 @@
 // RUST_LOG=debug cargo run
 mod command;
 mod fetch_metrics;
+mod metrics;
+
+use std::str::FromStr;
 
 use command::*;
 use fetch_metrics::fetch_metrics;
 use log::{debug, error, info};
 use tokio::{sync::{broadcast::{self, Receiver, Sender}}, task};
 
+use crate::metrics::Metric;
+
 fn process_command(cmd: Command) {
     match cmd {
-        Command::Store(metrics) => {
-            debug!("storing {} metrics", metrics.len());
-        },
+        Command::Store(metrics) => 
+            process_store_metrics(metrics),
         _ => {
             debug!("processing a different command");
+        }
+    }
+}
+
+fn process_store_metrics(metrics: Vec<String>) {
+    debug!("storing {} metrics", metrics.len());
+    for m in metrics {
+        if let Ok(m) = Metric::from_str(&m) {
+            debug!("storing metric: {:?}", &m);
         }
     }
 }
@@ -56,8 +69,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     });
 
+    // wait for the service to finish (never)
     manager.await.unwrap();
     forever_fetch_metrics.await.unwrap();
+
+    info!("Terminating service");
 
     Ok(())
 }
