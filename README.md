@@ -50,3 +50,10 @@ cargo outdated
 - [TOML Language](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml)
 - [crates](https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates)
 - [Path Intellisensee](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+
+# 9. Promotheus (node_exporter)
+
+```
+brew install node_exporter
+brew services run node_exporter
+```
