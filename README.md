@@ -5,6 +5,7 @@
 - 1.1. Stream [[code](./concurrency/stream/), [resource](https://kerkour.com/rust-worker-pool)]
 - 1.2. CPU Bound & Rayon [[code](./concurrency/cpubound/), [resource](https://kerkour.com/rust-worker-pool)]
 - 1.3. Cron jobs using tokio [[code](./concurrency/cron-job-tokio/), [resource](https://kerkour.com/rust-background-jobs)]
+- 1.4. Fetch metrics - htt client for node_exporter services [[code](./concurrency/fetch-metrics/)] 
 - 1.4. Prometheus (tokio application, building a time-series DB, http client) [[code](./concurrency/prometheus/), [resource](https://21-lessons.com/time-series-data-and-databases-with-rust/)]
 
 # 2. Data Structures
