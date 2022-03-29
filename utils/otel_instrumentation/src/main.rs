@@ -6,16 +6,20 @@ use opentelemetry::sdk::trace::Config;
 use opentelemetry::sdk::{trace as sdktrace, Resource};
 use opentelemetry::trace::TraceError;
 use opentelemetry::{
-    trace::{TraceContextExt, Tracer}, Key, KeyValue,
+    trace::{TraceContextExt, Tracer},
+    Key, KeyValue,
 };
 use std::error::Error;
 
 fn init_tracer() -> Result<sdktrace::Tracer, TraceError> {
     opentelemetry_jaeger::new_pipeline()
         .with_service_name("trace-demo")
-        .with_trace_config(Config::default().with_resource(Resource::new(vec![
-            KeyValue::new("exporter", "otlp-jaeger"),
-        ])))
+        .with_trace_config(
+            Config::default().with_resource(Resource::new(vec![KeyValue::new(
+                "exporter",
+                "otlp-jaeger",
+            )])),
+        )
         .install_batch(opentelemetry::runtime::Tokio)
 }
 

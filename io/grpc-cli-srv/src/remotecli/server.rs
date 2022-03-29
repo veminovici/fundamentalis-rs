@@ -2,7 +2,7 @@ use tonic::{transport::Server, Request, Response, Status};
 
 // Import the generated rust code into module
 pub mod remotecli_proto {
-   tonic::include_proto!("remotecli");
+    tonic::include_proto!("remotecli");
 }
 
 // Proto generated server traits
@@ -50,15 +50,15 @@ impl RemoteCli for Cli {
 }
 
 pub async fn start_server(opts: ServerOptions) -> Result<(), Box<dyn std::error::Error>> {
-   let addr = opts.server_listen_addr.parse().unwrap();
-   let cli_server = Cli::default();
+    let addr = opts.server_listen_addr.parse().unwrap();
+    let cli_server = Cli::default();
 
-   println!("RemoteCliServer listening on {}", addr);
+    println!("RemoteCliServer listening on {}", addr);
 
-   Server::builder()
-       .add_service(RemoteCliServer::new(cli_server))
-       .serve(addr)
-       .await?;
+    Server::builder()
+        .add_service(RemoteCliServer::new(cli_server))
+        .serve(addr)
+        .await?;
 
-   Ok(())
+    Ok(())
 }

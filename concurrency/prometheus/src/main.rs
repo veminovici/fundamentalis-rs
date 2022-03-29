@@ -8,14 +8,16 @@ use std::str::FromStr;
 use command::*;
 use fetch_metrics::fetch_metrics;
 use log::{debug, error, info};
-use tokio::{sync::{broadcast::{self, Receiver, Sender}}, task};
+use tokio::{
+    sync::broadcast::{self, Receiver, Sender},
+    task,
+};
 
 use crate::metrics::Metric;
 
 fn process_command(cmd: Command) {
     match cmd {
-        Command::Store(metrics) => 
-            process_store_metrics(metrics),
+        Command::Store(metrics) => process_store_metrics(metrics),
         _ => {
             debug!("processing a different command");
         }

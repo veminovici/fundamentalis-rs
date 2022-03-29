@@ -12,8 +12,7 @@ fn main() {
         // completes the builder.
         .finish();
 
-    tracing::subscriber::set_global_default(subscriber)
-        .expect("setting default subscriber failed");
+    tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
 
     let number_of_yaks = 3;
     // this creates a new event, outside of any spans.

@@ -1,6 +1,5 @@
-use std::str::FromStr;
 use log::error;
-
+use std::str::FromStr;
 
 #[derive(Debug, Clone)]
 pub struct Metric {
@@ -14,7 +13,7 @@ impl FromStr for Metric {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         if s.starts_with("#") {
-            return Err(0)
+            return Err(0);
         }
         // if s.contains("{") || s.contains("") {
         //     return Err(0)
@@ -25,13 +24,13 @@ impl FromStr for Metric {
         let value = iter.next();
 
         if name.is_none() || value.is_none() {
-            return Err(1)
+            return Err(1);
         }
 
         let pvalue = value.unwrap().parse::<f64>();
         if pvalue.is_err() {
             error!("failed to parse {}", name.unwrap());
-            return Err(2)
+            return Err(2);
         }
 
         let m = Metric {
@@ -39,7 +38,7 @@ impl FromStr for Metric {
             timestamp: 0,
             value: pvalue.unwrap(),
         };
-        
+
         Ok(m)
     }
 }

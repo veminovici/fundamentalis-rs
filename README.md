@@ -23,7 +23,7 @@
 # 5. Services
 - 5.1. Static-site generator [[code](./services/static-site-generator/), [resource](https://kerkour.com/rust-static-site-generator)]
 
-# 6. Utils
+# 6. Logging
 - 6.1. Logging [[code](./utils/logging/), [resource](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/log.html#log-a-debug-message-to-the-console)]
 - 6.2. Logging to stdoout [[code](./utils/logging-stdout/), [resource](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/log.html#log-an-error-message-to-the-console)]
 - 6.3. Logging with custom logger [[code](./utils/logging-custom/), [resource](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/log.html#log-messages-with-a-custom-logger)]
@@ -35,6 +35,7 @@
 
 # 7. Others
 - 7.1. Rust Development Workflow [[resource](https://kerkour.com/rust-development-workflow)]
+- 7.2. OS type [[code](./utils/os-type/)]
 
 ```
 cargo install cargo-audit

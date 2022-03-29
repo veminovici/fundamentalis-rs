@@ -1,4 +1,4 @@
-use axum::{http::StatusCode, Router, routing::get_service, Server};
+use axum::{http::StatusCode, routing::get_service, Router, Server};
 use std::{convert::Infallible, fs, net::SocketAddr, path::Path, thread, time::Duration};
 use tower_http::services::ServeDir;
 
@@ -51,7 +51,7 @@ fn rebuild_site(content_dir: &str, output_dir: &str) -> Result<(), anyhow::Error
     for file in &markdown_files {
         let mut html = templates::HEADER.to_owned();
         let markdown = fs::read_to_string(&file)?;
-        let parser = pulldown_cmark::Parser::new_ext(&markdown,  pulldown_cmark::Options::all());
+        let parser = pulldown_cmark::Parser::new_ext(&markdown, pulldown_cmark::Options::all());
 
         let mut body = String::new();
         pulldown_cmark::html::push_html(&mut body, parser);

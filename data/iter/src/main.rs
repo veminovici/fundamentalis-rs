@@ -63,7 +63,6 @@ pub trait IteratorExt: Iterator {
 
 impl<T> IteratorExt for T where T: Iterator + ?Sized {}
 
-
 fn main() {
     println!("Hello, world!");
 
@@ -76,5 +75,4 @@ fn main() {
     assert_eq!(ys.next(), Some(0));
     assert_eq!(ys.next(), Some(3));
     assert_eq!(ys.next(), None);
-
 }
