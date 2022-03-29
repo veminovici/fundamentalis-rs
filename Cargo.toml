@@ -15,4 +15,5 @@ members = [
     "./utils/logging-custom",
     "./utils/logging-syslog",
     "./utils/otel_instrumentation",
+    "./utils/trace",
 ]
