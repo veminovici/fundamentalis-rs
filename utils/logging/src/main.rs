@@ -1,3 +1,4 @@
+// RUST_LOG=debug cargo run -- bin logging
 // cargo run --bin logging
 
 fn execute_query(query: &str) {
