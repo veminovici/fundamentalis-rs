@@ -28,6 +28,7 @@
 - 6.4. Logging to syslog [[code](./utils/logging-syslog/), [resource](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/log.html#log-to-the-unix-syslog)]
 - 6.5. Logging other [resources](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/config_log.html)
 - 6.6. Open telemetry [[code](https://github.com/open-telemetry/opentelemetry-rust/tree/main/examples/grpc)]
+- 6.7. Open Telemetry Instrumentation [[code](./utils/otel_instrumentation/), [resources](https://21-lessons.com/how-to-instrument-a-rust-application-with-opentelemetry/)]
 
 # 7. Others
 - 7.1. Rust Development Workflow [[resource](https://kerkour.com/rust-development-workflow)]
