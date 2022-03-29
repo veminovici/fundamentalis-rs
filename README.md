@@ -40,3 +40,12 @@ cargo install cargo outdated
 cargo audit
 cargo outdated
 ```
+
+
+# 8. VSCode Plugins
+- [Rust-Analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer)
+- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+- [Search crates.io](https://marketplace.visualstudio.com/items?itemName=belfz.search-crates-io)
+- [TOML Language](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml)
+- [crates](https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates)
+- [Path Intellisensee](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
