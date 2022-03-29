@@ -11,6 +11,6 @@ fn is_os() -> bool {
 }
 
 fn main() {
-    let os = is_os();
-    println!("is os: {}", os);
+    let os = sw_vers::try_os();
+    println!("is os: {:?}", os);
 }
