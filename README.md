@@ -41,7 +41,13 @@ cargo install cargo outdated
 cargo audit
 cargo outdated
 ```
+- 7.2 Prometheus node_exported [[resource](https://prometheus.io/docs/guides/node-exporter/)]
 
+```
+brew install node_exporter
+brew services run node_exporter
+curl http://localhost:9100/metrics
+```
 
 # 8. VSCode Plugins
 - [Rust-Analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer)
@@ -51,9 +57,3 @@ cargo outdated
 - [crates](https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates)
 - [Path Intellisensee](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
-# 9. Promotheus (node_exporter)
-
-```
-brew install node_exporter
-brew services run node_exporter
-```
