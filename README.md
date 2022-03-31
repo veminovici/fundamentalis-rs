@@ -60,3 +60,6 @@ curl http://localhost:9100/metrics
 - [crates](https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates)
 - [Path Intellisensee](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
+# 9. Mac OS
+- Profiles: ~/.zprofile ~/.profile
+
