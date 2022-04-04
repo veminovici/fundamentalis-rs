@@ -344,6 +344,36 @@ impl<T: PartialEq> PartialEq for LinkedList<T> {
     }
 }
 
+impl<T: Eq> Eq for LinkedList<T> {}
+
+impl<T: PartialOrd> PartialOrd for LinkedList<T> {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        self.iter().partial_cmp(other)
+    }
+}
+
+impl<T: Ord> Ord for LinkedList<T> {
+    #[inline]
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.iter().cmp(other)
+    }
+}
+
+impl<T: std::fmt::Debug> std::fmt::Debug for LinkedList<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        f.debug_list().entries(self).finish()
+    }
+}
+
+impl<T: std::hash::Hash> std::hash::Hash for LinkedList<T> {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.len().hash(state);
+        for elt in self.iter() {
+            elt.hash(state);
+        }
+    }
+}
+
 pub struct Iter<'a, T: 'a> {
     head: &'a Link<T>,
     tail: &'a Raw<T>,
