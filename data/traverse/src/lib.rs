@@ -64,4 +64,10 @@ pub struct Map<I, F> {
     closure: F,
 }
 
+#[derive(Copy, Clone)]
+pub struct Filter<I, F> {
+    iter: I,
+    predicate: F,
+}
+
 mod ext;

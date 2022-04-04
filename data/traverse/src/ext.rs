@@ -11,3 +11,16 @@ impl<I: Traversal, O, F: FnMut(I::Item) -> O> Traversal for Map<I, F> {
         self.iter.foreach(move |t| f(closure(t)));
     }
 }
+
+impl<I: Traversal, F: FnMut(&I::Item) -> bool> Traversal for Filter<I, F> {
+    type Item = I::Item;
+
+    fn foreach<F1>(self, mut f: F1)
+    where
+        F1: FnMut(I::Item) -> bool,
+    {
+        let mut predicate = self.predicate;
+        self.iter
+            .foreach(move |t| if predicate(&t) { f(t) } else { false });
+    }
+}
