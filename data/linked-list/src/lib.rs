@@ -302,6 +302,48 @@ impl<T> iter::FromIterator<T> for LinkedList<T> {
     }
 }
 
+impl<T: Clone> Clone for LinkedList<T> {
+    fn clone(&self) -> Self {
+        self.iter().cloned().collect()
+    }
+}
+
+/// An iterator over the items of a `LinkedList`.
+#[derive(Clone)]
+pub struct IntoIter<T> {
+    list: LinkedList<T>
+}
+
+impl<T> Iterator for IntoIter<T> {
+    type Item = T;
+
+    #[inline]
+    fn next(&mut self) -> Option<T> { self.list.pop_front() }
+
+    #[inline]
+    fn size_hint(&self) -> (usize, Option<usize>) {
+        (self.list.len(), Some(self.list.len()))
+    }
+}
+
+impl<T> IntoIterator for LinkedList<T> {
+    type Item = T;
+    type IntoIter = IntoIter<T>;
+    fn into_iter(self) -> IntoIter<T> { IntoIter { list: self } }
+}
+
+impl<'a, T> IntoIterator for &'a LinkedList<T> {
+    type Item = &'a T;
+    type IntoIter = Iter<'a, T>;
+    fn into_iter(self) -> Iter<'a, T> { self.iter() }
+}
+
+impl<T: PartialEq> PartialEq for LinkedList<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.len == other.len && self.iter().eq(other)
+    }
+}
+
 pub struct Iter<'a, T: 'a> {
     head: &'a Link<T>,
     tail: &'a Raw<T>,
