@@ -8,6 +8,7 @@ members = [
     "./concurrency/prometheus",
     "./data/iter",
     "./data/linked-list",
+    "./data/traverse",
     "./io/file-read",
     "./mem/smart-pointers",
     "./io/http-client",

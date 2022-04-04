@@ -311,14 +311,16 @@ impl<T: Clone> Clone for LinkedList<T> {
 /// An iterator over the items of a `LinkedList`.
 #[derive(Clone)]
 pub struct IntoIter<T> {
-    list: LinkedList<T>
+    list: LinkedList<T>,
 }
 
 impl<T> Iterator for IntoIter<T> {
     type Item = T;
 
     #[inline]
-    fn next(&mut self) -> Option<T> { self.list.pop_front() }
+    fn next(&mut self) -> Option<T> {
+        self.list.pop_front()
+    }
 
     #[inline]
     fn size_hint(&self) -> (usize, Option<usize>) {
@@ -329,13 +331,17 @@ impl<T> Iterator for IntoIter<T> {
 impl<T> IntoIterator for LinkedList<T> {
     type Item = T;
     type IntoIter = IntoIter<T>;
-    fn into_iter(self) -> IntoIter<T> { IntoIter { list: self } }
+    fn into_iter(self) -> IntoIter<T> {
+        IntoIter { list: self }
+    }
 }
 
 impl<'a, T> IntoIterator for &'a LinkedList<T> {
     type Item = &'a T;
     type IntoIter = Iter<'a, T>;
-    fn into_iter(self) -> Iter<'a, T> { self.iter() }
+    fn into_iter(self) -> Iter<'a, T> {
+        self.iter()
+    }
 }
 
 impl<T: PartialEq> PartialEq for LinkedList<T> {

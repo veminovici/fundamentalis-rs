@@ -10,6 +10,8 @@
 
 # 2. Data Structures
 - 2.1. Itertools [[code](./data/iter/)]
+- 2.2. Linked List - a double linked list [[code](./data/linked-list/), [resource](https://github.com/contain-rs/linked-list)]
+- 2.3. Traverse [[code](./data/traverse/), [resource](https://github.com/contain-rs/rust-traverse)]
 
 # 3. IO
 - 3.1. Read a file [[code](./io/file-read/), [resource](https://kerkour.com/rust-read-file)]

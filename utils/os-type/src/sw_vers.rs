@@ -30,7 +30,7 @@ fn parse(version_str: String) -> SwVers {
     }
 }
 
-pub fn try_os() -> SwVers{
+pub fn try_os() -> SwVers {
     Command::new("sw_vers")
         .output()
         .map(|output| output.stdout.clone())
