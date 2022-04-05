@@ -39,6 +39,7 @@
 # 7. Others
 - 7.1. Rust Development Workflow [[resource](https://kerkour.com/rust-development-workflow)]
 - 7.2. OS type [[code](./utils/os-type/)]
+- 7.3. Slice patterns [[code](./utils/slice-patterns/), [resource]https://adventures.michaelfbryan.com/posts/daily/slice-patterns/()]
 
 ```
 cargo install cargo-audit

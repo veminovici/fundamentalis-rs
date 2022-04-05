@@ -21,5 +21,6 @@ members = [
     "./utils/logging-syslog",
     "./utils/os-type",
     "./utils/otel_instrumentation",
+    "./utils/slice-patterns",
     "./utils/trace",
 ]
