@@ -12,7 +12,8 @@
 - 2.1. Itertools [[code](./data/iter/)]
 - 2.2. Linked List - a double linked list [[code](./data/linked-list/), [resource](https://github.com/contain-rs/linked-list)]
 - 2.3. Traverse [[code](./data/traverse/), [resource](https://github.com/contain-rs/rust-traverse)]
-- 2.4. BList a deque [[code](./data/blist/), [response](https://github.com/contain-rs/blist)]
+- 2.4. BList a deque [[code](./data/blist/), [resource](https://github.com/contain-rs/blist)]
+- 2.5. ArrayVec using Const Generics [[code](./data/const-arrayvec/), [resource](https://adventures.michaelfbryan.com/posts/const-arrayvec/)]
 
 # 3. IO
 - 3.1. Read a file [[code](./io/file-read/), [resource](https://kerkour.com/rust-read-file)]
@@ -48,13 +49,15 @@ cargo install cargo outdated
 cargo audit
 cargo outdated
 ```
-- 7.2 Prometheus node_exported [[resource](https://prometheus.io/docs/guides/node-exporter/)]
+- 7.4 Prometheus node_exported [[resource](https://prometheus.io/docs/guides/node-exporter/)]
 
 ```
 brew install node_exporter
 brew services run node_exporter
 curl http://localhost:9100/metrics
 ```
+
+- 7.5. mdbook [[resource](https://rust-lang.github.io/mdBook/)]
 
 # 8. VSCode Plugins
 - [Rust-Analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer)
