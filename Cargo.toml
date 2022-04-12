@@ -12,6 +12,7 @@ members = [
     "./data/linked-list",
     "./data/traverse",
     "./io/file-read",
+    "./mem/myvec",
     "./mem/pointers",
     "./mem/smart-pointers",
     "./io/http-client",
