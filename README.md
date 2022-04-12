@@ -23,6 +23,7 @@
 
 # 4. Memory
 - 4.1. Smart pointers [[code](./mem/smart-pointers/), [resource](https://kerkour.com/rust-avoid-lifetimes)]
+- 4.2. Pointer [[code](./mem/pointers/)]
 
 # 5. Services
 - 5.1. Static-site generator [[code](./services/static-site-generator/), [resource](https://kerkour.com/rust-static-site-generator)]
