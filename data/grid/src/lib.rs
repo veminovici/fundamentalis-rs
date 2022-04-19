@@ -4,6 +4,7 @@ mod bit;
 mod matrix1d;
 mod matrix2d;
 
+pub use bit::*;
 pub use matrix1d::*;
 pub use matrix2d::*;
 
