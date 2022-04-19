@@ -9,6 +9,7 @@ members = [
     "./data/iter",
     "./data/blist",
     "./data/const-arrayvec",
+    "./data/grid",
     "./data/linked-list",
     "./data/traverse",
     "./io/file-read",
