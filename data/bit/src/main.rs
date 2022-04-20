@@ -60,14 +60,16 @@ impl<'a> Iterator for BitIterator<'a> {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+fn main() {
+    let x = [0b_1010_0101u8];
+    println!("x={:?}", x);
 
-    #[test]
-    fn new_bit() {
-        let x = [0b11110000u8];
-        let bit = Bit::new(&x, 0);
-        assert_eq!(bit.index, 0);
-    }
+    let b: u8 = Bit::new(&x, 0).into();
+    eprintln!("b_as_u8={:?}", b);
+
+    let b: bool = Bit::new(&x, 0).into();
+    eprintln!("b_as_bool={:?}", b);
+
+    let xs: Vec<bool> = BitIterator::new(&x).collect();
+    println!("xs={:?}", xs);
 }

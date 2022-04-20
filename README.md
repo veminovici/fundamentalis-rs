@@ -14,7 +14,8 @@
 - 2.3. Traverse [[code](./data/traverse/), [resource](https://github.com/contain-rs/rust-traverse)]
 - 2.4. BList a deque [[code](./data/blist/), [resource](https://github.com/contain-rs/blist)]
 - 2.5. ArrayVec using Const Generics [[code](./data/const-arrayvec/), [resource](https://adventures.michaelfbryan.com/posts/const-arrayvec/)]
-- 2.6. Grid using const generics [[coe](./data/grid/), [resource](https://blog.adamchalmers.com/grids-2/)]
+- 2.6. Grid using const generics [[code](./data/grid/), [resource](https://blog.adamchalmers.com/grids-2/)]
+- 2.7. Bit access a bit in an array of u8s [[code](./data/bit/)]
 
 # 3. IO
 - 3.1. Read a file [[code](./io/file-read/), [resource](https://kerkour.com/rust-read-file)]

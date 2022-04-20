@@ -6,6 +6,7 @@ members = [
     "./concurrency/cron-job-tokio",
     "./concurrency/fetch-metrics",
     "./concurrency/prometheus",
+    "./data/bit",
     "./data/iter",
     "./data/blist",
     "./data/const-arrayvec",
