@@ -16,6 +16,7 @@
 - 2.5. ArrayVec using Const Generics [[code](./data/const-arrayvec/), [resource](https://adventures.michaelfbryan.com/posts/const-arrayvec/)]
 - 2.6. Grid using const generics [[code](./data/grid/), [resource](https://blog.adamchalmers.com/grids-2/)]
 - 2.7. Bit access a bit in an array of u8s [[code](./data/bit/)]
+- 2.8. Recursive iterator [[code](./data/recursive-iter/), [resource](https://fasterthanli.me/articles/recursive-iterators-rust)]
 
 # 3. IO
 - 3.1. Read a file [[code](./io/file-read/), [resource](https://kerkour.com/rust-read-file)]

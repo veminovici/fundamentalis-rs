@@ -12,6 +12,7 @@ members = [
     "./data/const-arrayvec",
     "./data/grid",
     "./data/linked-list",
+    "./data/recursive-iter",
     "./data/traverse",
     "./io/file-read",
     "./mem/myvec",
