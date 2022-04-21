@@ -31,6 +31,7 @@
 
 # 5. Services
 - 5.1. Static-site generator [[code](./services/static-site-generator/), [resource](https://kerkour.com/rust-static-site-generator)]
+- 5.2. Hostname based router with axum [[code](./services/router/), [resource](https://kerkour.com/rust-axum-hostname-router)]
 
 # 6. Logging
 - 6.1. Logging [[code](./utils/logging/), [resource](https://rust-lang-nursery.github.io/rust-cookbook/development_tools/debugging/log.html#log-a-debug-message-to-the-console)]
