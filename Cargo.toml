@@ -16,6 +16,7 @@ members = [
     "./io/file-read",
     "./mem/myvec",
     "./mem/pointers",
+    "./mem/smallstr",
     "./mem/smart-pointers",
     "./io/http-client",
     "./io/grpc-cli-srv",
