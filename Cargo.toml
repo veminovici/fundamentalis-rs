@@ -15,6 +15,7 @@ members = [
     "./data/recursive-iter",
     "./data/traverse",
     "./io/file-read",
+    "./mem/allocator",
     "./mem/myvec",
     "./mem/pointers",
     "./mem/smallstr",
