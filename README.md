@@ -7,6 +7,7 @@
 - 1.3. Cron jobs using tokio [[code](./concurrency/cron-job-tokio/), [resource](https://kerkour.com/rust-background-jobs)]
 - 1.4. Fetch metrics - htt client for node_exporter services [[code](./concurrency/fetch-metrics/)] 
 - 1.4. Prometheus (tokio application, building a time-series DB, http client) [[code](./concurrency/prometheus/), [resource](https://21-lessons.com/time-series-data-and-databases-with-rust/)]
+- 1.5. Async futures [[code](./concurrency/async-future/), [resource](https://fasterthanli.me/articles/getting-in-and-out-of-trouble-with-rust-futures)]
 
 # 2. Data Structures
 - 2.1. Itertools [[code](./data/iter/)]
