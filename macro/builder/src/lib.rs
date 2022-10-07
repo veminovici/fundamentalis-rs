@@ -1,6 +1,24 @@
-use proc_macro::{TokenStream};
+use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, DeriveInput};
+
+fn ty_is_option<'a>(ty: &'a syn::Type) -> Option<&syn::Type> {
+    if let syn::Type::Path(ref p) = ty {
+        if p.path.segments.len() == 1 && p.path.segments[0].ident == "Option" {
+            if let syn::PathArguments::AngleBracketed(ref inner_ty) = p.path.segments[0].arguments {
+                if inner_ty.args.len() == 1 {
+                    let inner_ty = inner_ty.args.first().unwrap();
+                    if let syn::GenericArgument::Type(ref ty) = inner_ty {
+                        return Some(ty)
+                    }
+                }
+            }
+        }
+    }
+
+    None
+}
+
 
 #[proc_macro_derive(Builder)]
 pub fn derive(input: TokenStream) -> TokenStream {
@@ -29,8 +47,14 @@ pub fn derive(input: TokenStream) -> TokenStream {
         let name = &f.ident;
         let ty = &f.ty;
 
-        quote! {
-            #name: std::option::Option<#ty>
+        if ty_is_option(ty).is_some() {
+            quote! {
+                #name: #ty
+            }
+        } else {
+            quote! {
+                #name: std::option::Option<#ty>
+            }
         }
     });
 
@@ -39,10 +63,19 @@ pub fn derive(input: TokenStream) -> TokenStream {
         let name = &f.ident;
         let ty = &f.ty;
 
-        quote! {
-            pub fn #name(&mut self, #name: #ty) -> &mut Self {
-                self.#name = std::option::Option::Some(#name);
-                self
+        if let Some(inner_ty) = ty_is_option(ty) {
+            quote! {
+                pub fn #name(&mut self, #name: #inner_ty) -> &mut Self {
+                    self.#name = Some(#name);
+                    self
+                }
+            }
+        } else {
+            quote! {
+                pub fn #name(&mut self, #name: #ty) -> &mut Self {
+                    self.#name = std::option::Option::Some(#name);
+                    self
+                }
             }
         }
     });
@@ -55,14 +88,18 @@ pub fn derive(input: TokenStream) -> TokenStream {
         }
     });
 
-    let set_to_bval = fields.iter().map(|f| {
+    let build_fields = fields.iter().map(|f| {
         let name = &f.ident;
-
-        quote! {
-            #name: self.#name.clone().unwrap()
+        if ty_is_option(&f.ty).is_some() {
+            quote! {
+                #name: self.#name.clone()
+            }
+        } else {
+            quote! {
+                #name: self.#name.clone().ok_or(concat!(stringify!(#name), " is not set"))?
+            }
         }
     });
-
 
     let expanded = quote! {
         // The builder for #name structure
@@ -75,7 +112,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
 
             pub fn build(&mut self) -> std::result::Result<#name, std::boxed::Box<dyn std::error::Error>> {
                 std::result::Result::Ok(#name {
-                    #(#set_to_bval,)*
+                    #(#build_fields,)*
                 })
             }
         }
