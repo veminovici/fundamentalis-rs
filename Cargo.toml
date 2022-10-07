@@ -21,6 +21,7 @@ members = [
     "./mem/pointers",
     "./mem/smallstr",
     "./mem/smart-pointers",
+    "./mem/cow",
     "./io/http-client",
     "./io/grpc-cli-srv",
     "./services/router",
