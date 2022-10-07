@@ -1,4 +1,5 @@
 use proc_macro::TokenStream;
+use proc_macro2::TokenTree;
 use quote::quote;
 use syn::{parse_macro_input, DeriveInput};
 
@@ -19,8 +20,24 @@ fn ty_is_option<'a>(ty: &'a syn::Type) -> Option<&syn::Type> {
     None
 }
 
+fn ty_is_vec<'a>(ty: &'a syn::Type) -> Option<&syn::Type> {
+    if let syn::Type::Path(ref p) = ty {
+        if p.path.segments.len() == 1 && p.path.segments[0].ident == "Vec" {
+            if let syn::PathArguments::AngleBracketed(ref inner_ty) = p.path.segments[0].arguments {
+                if inner_ty.args.len() == 1 {
+                    let inner_ty = inner_ty.args.first().unwrap();
+                    if let syn::GenericArgument::Type(ref ty) = inner_ty {
+                        return Some(ty)
+                    }
+                }
+            }
+        }
+    }
 
-#[proc_macro_derive(Builder)]
+    None
+}
+
+#[proc_macro_derive(Builder, attributes(builder))]
 pub fn derive(input: TokenStream) -> TokenStream {
     let ast = parse_macro_input!(input as DeriveInput);
 
@@ -80,6 +97,51 @@ pub fn derive(input: TokenStream) -> TokenStream {
         }
     });
 
+    let extend_setters = fields.iter().filter_map(|f| {
+
+        let ty = &f.ty;
+
+        if let Some(inner_ty) = ty_is_vec(ty) {
+            for attr in &f.attrs {
+                if attr.path.segments.len() == 1 && attr.path.segments[0].ident == "builder" {
+    
+                    if let Some(proc_macro2::TokenTree::Group(g)) = attr.tokens.clone().into_iter().next() {
+                        let mut tokens = g.stream().into_iter();
+                        match tokens.next().unwrap() {
+                            TokenTree::Ident(ref _i) => (),
+                            _tt => panic!("Not each")
+                        }
+    
+                        match tokens.next().unwrap() {
+                            TokenTree::Punct(ref _p) => (),
+                            _tt => panic!("Not =")
+                        }
+    
+                        match tokens.next().unwrap() {
+                            TokenTree::Literal(l) => {
+                                match syn::Lit::new(l) {
+                                    syn::Lit::Str(s) => {
+                                        let arg = syn::Ident::new(&s.value(), s.span());
+                                        
+                                        return Some(quote! {
+                                            pub fn #arg(&mut self, value: #inner_ty) -> &mut Self {
+                                                self
+                                            }
+                                        });
+                                    },
+                                    _l => panic!("Not a string literal")
+                                }
+                            },
+                            _tt => panic!("Not a literal")
+                        }
+                    }
+                }
+            }
+        }
+
+        None
+    });
+
     let set_to_none = fields.iter().map(|f| {
         let name = &f.ident;
 
@@ -109,6 +171,8 @@ pub fn derive(input: TokenStream) -> TokenStream {
 
         impl #bident {
             #(#setters)*
+
+            #(#extend_setters)*
 
             pub fn build(&mut self) -> std::result::Result<#name, std::boxed::Box<dyn std::error::Error>> {
                 std::result::Result::Ok(#name {
