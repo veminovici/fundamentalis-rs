@@ -69,6 +69,7 @@ curl http://localhost:9100/metrics
 ```
 
 - 7.5. mdbook [[resource](https://rust-lang.github.io/mdBook/)]
+- 7.6 [Video Streams](https://github.com/jamesmunns/awesome-rust-streaming/)
 
 # 8. VSCode Plugins
 - [Rust-Analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer)
@@ -81,3 +82,6 @@ curl http://localhost:9100/metrics
 # 9. Mac OS
 - Profiles: ~/.zprofile ~/.profile
 
+```
+cargo test -- --nocapture
+```
