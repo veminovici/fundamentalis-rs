@@ -31,6 +31,7 @@
 - 4.3. Vector from scratch [[code](./mem/myvec/), [resource](https://www.youtube.com/watch?v=3OL95gZgPWA)]
 - 4.4. Small string [[code](./mem/smallstr/), [resource](https://fasterthanli.me/articles/peeking-inside-a-rust-enum)]
 - 4.5. Global allocator [[code](./mem/allocator/), [resource](https://fasterthanli.me/articles/small-strings-in-rust)]
+- 4.6. Cow [[code](./mem/cow/), [resources](https://dev.to/kgrech/6-things-you-can-do-with-the-cow-in-rust-4l55)]
 
 # 5. Services
 - 5.1. Static-site generator [[code](./services/static-site-generator/), [resource](https://kerkour.com/rust-static-site-generator)]
