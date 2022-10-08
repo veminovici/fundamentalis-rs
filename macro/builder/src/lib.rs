@@ -99,6 +99,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
 
     let extend_setters = fields.iter().filter_map(|f| {
         let ty = &f.ty;
+        let name = &f.ident;
 
         if let Some(inner_ty) = ty_is_vec(ty) {
             for attr in &f.attrs {
