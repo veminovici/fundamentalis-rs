@@ -36,4 +36,5 @@ members = [
     "./utils/otel_instrumentation",
     "./utils/slice-patterns",
     "./utils/trace",
+    "./utils/trying",
 ]

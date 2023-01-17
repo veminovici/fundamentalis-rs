@@ -48,10 +48,11 @@
 - 6.8. Trace [[code](./utils/trace/), [resource](https://21-lessons.com/getting-better-insights-into-your-rust-applications/)]
 - 6.9. Format [[code](./utils/format/), [resource](https://doc.rust-lang.org/std/fmt/index.html)]
 
-# 7. Others
+# 7. Utils
 - 7.1. Rust Development Workflow [[resource](https://kerkour.com/rust-development-workflow)]
 - 7.2. OS type [[code](./utils/os-type/)]
 - 7.3. Slice patterns [[code](./utils/slice-patterns/), [resource]https://adventures.michaelfbryan.com/posts/daily/slice-patterns/()]
+- 7.4. Implementing Try trait [[code](./utils//trying/)]
 
 ```
 cargo install cargo-audit
