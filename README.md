@@ -53,6 +53,7 @@
 - 7.2. OS type [[code](./utils/os-type/)]
 - 7.3. Slice patterns [[code](./utils/slice-patterns/), [resource]https://adventures.michaelfbryan.com/posts/daily/slice-patterns/()]
 - 7.4. Implementing Try trait [[code](./utils//trying/)]
+- 7.5. Cargo package [[code](./utils/cargo-sln/)]
 
 ```
 cargo install cargo-audit

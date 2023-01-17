@@ -27,6 +27,7 @@ members = [
     "./io/grpc-cli-srv",
     "./services/router",
     "./services/static-site-generator",
+    "./utils/cargo-sln",
     "./utils/format",
     "./utils/logging",
     "./utils/logging-stdout",
