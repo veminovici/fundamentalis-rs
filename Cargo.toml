@@ -4,7 +4,6 @@ members = [
     "./concurrency/async-future",
     "./concurrency/stream",
     "./concurrency/cpubound",
-    "./concurrency/cron-job-tokio",
     "./concurrency/fetch-metrics",
     "./concurrency/prometheus",
     "./data/bit",
