@@ -1,0 +1,6 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "./mem/borrow/Cargo.toml"
+    ],
+    "rust-analyzer.showUnlinkedFileNotification": false
+}
