@@ -1,4 +1,5 @@
 [workspace]
+resolver = "2"
 
 members = [
     "./concurrency/async-future",
@@ -36,5 +37,13 @@ members = [
     "./utils/otel_instrumentation",
     "./utils/slice-patterns",
     "./utils/trace",
-    "./utils/trying", "iter/iter_recursive", "lazyness/static_lazy", "tagless/typestate-pattern", "tagless/typed-tagless", "mem/borrow", "ffi/my_lib", "futures/type_sizes", "futures/trait_object",
+    "./utils/trying",
+    "iter/iter_recursive",
+    "lazyness/static_lazy",
+    "tagless/typestate-pattern",
+    "tagless/typed-tagless",
+    "mem/borrow",
+    "ffi/my_lib",
+    "futures/type_sizes",
+    "futures/trait_object", "futures/my_yield",
 ]
